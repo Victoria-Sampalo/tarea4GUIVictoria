@@ -7,6 +7,7 @@ package calculadoravictoria;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -14,12 +15,20 @@ import javax.swing.JTextArea;
  *
  * @author Victoria
  */
-public class PanelPrincipal extends JPanel{
+public class PanelPrincipal extends JPanel implements ActionListener{
     //añadimos de los apuntes de GUI las anotaciones del profesor****
     // Atributos de la clase (privados)
 	private PanelBotones botonera;
 	private JTextArea areaTexto;
 	private int tipoOperacion;
+        
+        
+        //string para detectar si es numero u operando
+        
+       private String operando1 ="";
+       private String operando2 ="";
+       private String simboloOperacion= "";
+       private String igualSimbolo="";
         
     //constructor
         public PanelPrincipal(){
@@ -47,6 +56,56 @@ public class PanelPrincipal extends JPanel{
     		
 	 
 	}
+        
+        
+        //método que verifica si es un número 
+        private boolean comprobarNum (JTextArea areaTexto, String botonSiguiente){
+        
+            try {
+            Integer.parseInt(areaTexto.getText());
+            Integer.parseInt(botonSiguiente);
+            
+            
+            }catch(NumberFormatException nfe){
+             return false;
+            
+            }
+            return true;
+        
+        }
 
-
+@Override
+	public void actionPerformed(ActionEvent ae) {
+        
+        //objeto que ejecuta el evento
+        Object o = ae.getSource();
+        
+        //if para ver si es un botón y en ese caso desarrollo el codigo
+        if(o instanceof Jbutton){
+        
+        Jbutton aux = (JButton) o;
+        
+        System.out.println(aux.getText());
+        
+        //con el método de comprobar si es un numero comprobamos si es o no
+        if (!comprobarNum(areaTexto, aux.getTexto())) {
+        
+        
+        
+        
+        }
+        //sino se limpia el scanner
+        if(!aux.getText().equals("=")){
+        
+            areaTexto.setText(areaTexto.getText() + aux.getText());
+            
+        
+        }
+        
+        
+        
+        
+        }
+        
+        }
 }

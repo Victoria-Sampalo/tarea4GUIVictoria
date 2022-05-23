@@ -18,7 +18,7 @@ public class Calculadora {
      */
     public static void main(String[] args) {
         
-   	JFrame frame = new JFrame("Calculadora");
+   	JFrame frame = new JFrame("VickyCalculator 3000");
     	frame.setBounds(250, 250, 0, 0);
     	frame.add(new PanelPrincipal());
    	 
