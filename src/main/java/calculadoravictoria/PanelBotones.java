@@ -13,42 +13,39 @@ import javax.swing.JPanel;
  *
  * @author Victoria
  */
-public class PanelBotones extends JPanel{
+public class PanelBotones extends JPanel {
     // Números del 0 al 9 y seis botones más para
-	// suma, resta, multiplicacion, división, resultado y limpiar
-	JButton [] grupoBotones = new JButton[16];
+    // suma, resta, multiplicacion, división, resultado y limpiar
+    JButton[] grupoBotones = new JButton[16];
 
     //constructor
-        public PanelBotones(){
-    		initComponents();
-	}
+    public PanelBotones() {
+        initComponents();
+    }
 
-        
-        
-        private void initComponents(){
-   	 
-    	// Creación de los botones
-    	for (int i=0;i<10;i++){
-        	grupoBotones[i] = new JButton(Integer.toString(i));
-    	}
-    	grupoBotones[10] = new JButton("+");
-    	grupoBotones[11] = new JButton("-");
-    	grupoBotones[12] = new JButton("*");
-    	grupoBotones[13] = new JButton("/");
-    	grupoBotones[14] = new JButton("=");
-grupoBotones[15] = new JButton("C");
-   	
-// Establecemos el layout
-    	this.setLayout (new GridLayout (4,4));
+    private void initComponents() {
 
-    	for (JButton boton : grupoBotones) {
-        		this.add(boton);
-    	}
-	}
+        // Creación de los botones
+        for (int i = 0; i < 10; i++) {
+            grupoBotones[i] = new JButton(Integer.toString(i));
+        }
+        grupoBotones[10] = new JButton("+");
+        grupoBotones[11] = new JButton("-");
+        grupoBotones[12] = new JButton("*");
+        grupoBotones[13] = new JButton("/");
+        grupoBotones[14] = new JButton("=");
+        grupoBotones[15] = new JButton("C");
 
-    
-	public JButton[] getgrupoBotones(){
-    		return grupoBotones;
-	}  
+        // Establecemos el layout
+        this.setLayout(new GridLayout(4, 4));
+
+        for (JButton boton : grupoBotones) {
+            this.add(boton);
+        }
+    }
+
+    public JButton[] getgrupoBotones() {
+        return grupoBotones;
+    }
 
 }

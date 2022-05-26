@@ -7,8 +7,10 @@ package calculadoravictoria;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.InputMismatchException;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -102,7 +104,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
                     areaTexto.setText(operando1);
 
                 } else if (aux.getText().equals("=") && !simboloOperacion.equals(null)) {
-                    operando1 = "" + realizarOperacion(operando1 , operando2 , simboloOperacion);
+                    operando1 = "" + realizarOperacion(operando1, operando2, simboloOperacion);
 
                     areaTexto.setText(operando1);
                     operando2 = "";
@@ -160,9 +162,10 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             }
 
         }
-    
-}
-        //método para operar pasamos dos operandos y un signo operacion
+
+    }
+    //método para operar pasamos dos operandos y un signo operacion
+
     private float realizarOperacion(String num1, String num2, String operador) {
         float numero1, numero2;
         numero1 = Float.parseFloat(num1);
@@ -181,6 +184,5 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         }
 
     }
-    
+
 }
-    
